@@ -1,0 +1,162 @@
+/* el asterisco quiere decir que voy a hacer un cambio universal*/
+
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* los pixeles son medidas fijas*/
+
+:root{ /*sirve para declarar las variables*/
+    --color-primario: #000000;
+    --color-secundario: #F6F6F6;
+    --color-terciario: #22D4FD;
+    --color-extra: #272727;
+
+    --fuente-montserrat:"Montserrat", sans serif;
+    --fuente-krona: "Krona one", sans serif;
+
+}
+
+*{
+    padding:0; /*relleno interno de los cuatro lados del elemento*/
+    margin:0; /*margen de los cuatro lados del elemento*/
+}
+
+
+body{
+    background-color: var(--color-primario);
+    color: var(--color-secundario);
+    /* height:100vh; SE LO SACA POR AHORA, PORQUE HAY OTROS ELEMENTOS OCUPANDO LA PANTALLA*/
+    /*v significa view port, h significa la altura de nuestra página */
+    /*¿Qué es el Viewport?*/
+    /*En informática gráfica, el viewport es la porción del área visible de un plano y se utiliza como unidad de medida*/
+    /* en CSS para crear páginas web 100% responsivas. En otras palabras, el viewport varía de dispositivo a dispositivo,*/
+    /* por ejemplo, en computadoras, tabletas y teléfonos móviles, cada pantalla tiene dimensiones diferentes y mientras una */
+    /*página no responsiva presentaría elementos desproporcionados, una página responsiva utilizando viewport tendría sus elementos */
+    /*adecuados a cada proporción.*/
+    box-sizing: border-box;
+
+
+    /* esto es un símbolo de una clase */
+    /*Ahora ya sabes que el atributo class permite al CSS seleccionar y acceder a elementos */
+    /*a través de selectores de clase*/
+}
+
+.header{
+    padding: 2% 0% 0% 15%; /*estos valores corresponden a arriba, derecha, abajo, izquierda*/
+}
+
+.header__menu{
+    display: flex;
+    gap: 80px; /*para separar las dos frases*/
+}
+
+.header__menu__link{
+    font-family: var(--fuente-montserrat);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-terciario);
+    text-decoration: none; /*quita la línea que está debajo de la palabra del enlace*/
+}
+
+.titulo__destaque{
+    color: var(--color-terciario);
+}
+
+.presentacion{
+    display:flex; /*alinea todo el contenido, en este caso en forma de columnas*/
+    align-items: center; /*alinea los elementos, en este caso al centro*/
+    padding: 6% 15%; /*antes decía MARGIN se cambió por padding*/
+    justify-content: space-between;
+    gap: 82px;
+}
+
+.presentacion__contenido{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    /*La propiedad gap no es exclusiva de Flexbox, sin embargo, se utiliza casi siempre en conjunto con él. */
+    /*Esta propiedad especifica en CSS el tamaño de los espacios entre filas y columnas en diseños de cuadrícula,*/
+    /* flex y de varias columnas. Su sintaxis es bastante simple y acepta uno o dos valores.*/
+}
+
+.presentacion__contenido__titulo{
+    font-size: 2.25rem;
+    font-family: var(--fuente-krona);
+}
+
+.presentacion__contenido__parrafo{
+    font-size: 1.5rem;
+    font-family: var(--fuente-montserrat);
+}
+
+.presentacion__enlaces{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column; /*para alinear en columna, en este caso el subtítulo y los botones*/
+                            /*cuando cambiamos el flex-direction, se cambian también el eje de los botones*/
+    align-items: center;  /*para posicionar los botones al centro*/
+    gap: 32px;   /*espacio dado entre cada botón*/                   
+}
+
+.presentacion__enlaces__link{
+    width: 50%;
+   /* background-color: #22D4FD;*/
+    text-align: center;
+    padding: 21.5px 0;/*el primer valor corresponde al vertica, el segundo de la horizontal*/
+    border-radius: 8px; /*es el borde redondeado del botón*/
+    font-family: var(--fuente-montserrat);
+    font-size: 1.5rem;
+    font-weight: 600; /*es para el semi bold*/
+    text-decoration: none; /*es para la decoración, en este caso el subrayado de los botones*/
+    color:var(--color-secundario); /*color de la letra del botón*/
+    border: 2px solid var(--color-terciario);/* border: agrega borde a los botones. */
+                                /*2px es tamaño del borde. solid es el estilo del bordey el hexadecimal es el color del borde*/
+    display: flex;           
+    justify-content: center;  /* SE USA JUSTIFY-CONTENT PORQUE ETÁ EN EL EJE HORIZONTAL*/ 
+                              /*alinear el contenido del botón hacia el centro*/    
+    gap: 10px;           
+}
+
+.presentacion__enlaces__subtitulo{
+    font-family: var(--fuente-montserrat);/*tipo de letra*/
+    font-size: 1.5rem; /*tamaño*/
+    font-weight: 400;
+}
+
+.presentacion__enlaces__link:hover{
+    background-color: var(--color-extra);
+}
+
+.presentacion__imagen{
+    width: 50%;
+}
+
+.footer{
+    background-color: var(--color-terciario);
+    padding: 24px; /*es el relleno se utiliza para crear espacio alrededor del contenido de un elemento,*/ 
+                   /* dentro de cualquier borde definido.*/
+    text-align: center; /*justificación del texto*/
+    color: var(--color-primario);
+    font-family: var(--fuente-montserrat);
+    font-size: 1.5rem;
+    font-weight: 400; /*el 400 significa que es regular*/
+}
+
+@media (max-width: 1200px){ /*para darle el máximo a la pantalla @media es para que se adapte */ 
+                            /*a cualquier aparato multimedia*/
+    .header{
+        padding: 10%;
+    }
+
+    .header__menu{
+        justify-content: center;
+    }
+
+    .presentacion{
+        flex-direction: column-reverse; /*para que la foto, al achicar la pantalla se vaya hacia arriba*/
+        padding: 5%;
+    }
+
+    .presentacion__contenido{
+        width: auto; /*el auto se va a adaptar */
+    }
+}
